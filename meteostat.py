@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 import os
 import datetime
@@ -51,24 +52,25 @@ driver.implicitly_wait(3)
 driver.get(f"https://meteostat.net/en/place/de/berlin-treptow?s=10389&t={current}/{three_days_later}")
 
 notice_elem = "/html/body/div[1]/div[2]/div/div/div[3]/button[2]"
-accept = driver.find_element_by_xpath(notice_elem)
+accept = driver.find_element(By.XPATH, notice_elem)
 if accept: 
   print(accept.text)
   accept.click()
 
 export_elem = "/html/body/div/div/main/div/div/div/div[1]/div[1]/div[1]/button[1]"
-export = driver.find_element_by_xpath(export_elem)
+export = driver.find_element(By.XPATH, export_elem)
 export.click()
 
 select_elem = 'formatSelect'
-select = driver.find_element_by_id(select_elem)
+select = driver.find_element(By.ID, select_elem)
 select.click()
 
 csv_option_elem = '/html/body/div[1]/div/main/div/div/div/div[1]/div[3]/div[5]/div/div/div[2]/form/div/select/option[4]'
-csv_option = driver.find_element_by_xpath(csv_option_elem)
+csv_option = driver.find_element(By.XPATH, csv_option_elem)
 csv_option.click()
 
 save_button_elem = '/html/body/div[1]/div/main/div/div/div/div[1]/div[3]/div[5]/div/div/div[3]/button'
-save_button = driver.find_element_by_xpath(save_button_elem)
+save_button = driver.find_element(By.XPATH, save_button_elem)
 print(f'Save={save_button.text}')
 save_button.click()
+
