@@ -1,7 +1,6 @@
 import csv
 import datetime
 
-
 # 날짜
 current = datetime.datetime.now()
 current = str(current)[0:10]
