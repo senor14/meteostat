@@ -33,12 +33,12 @@ def createFolder(directory):
 
 # 다운로드받을 경로에 맞게 설정 one_day_ago, current는 놔두고 앞에 경로에 맞게 수정
 # one_day_ago, current는 날짜에 맞게 폴더가 생성됨
-deleteFolder(f'C:/Users/Sun/Desktop/selenium_/csv/{one_day_ago}')
-createFolder(f'C:/Users/Sun/Desktop/selenium_/csv/{current}')
+deleteFolder(f'E:\\Program\\Python\\Project\\csv\\{one_day_ago}')
+createFolder(f'E:\\Program\\Python\\Project\\csv\\{current}')
 
 # 다운로드받는 csv파일 원하는 경로에 맞게 설정 current는 놔두고 앞에 경로만 수정, 경로 뒤에 '\\' 이거 붙이고
 # current 오늘 날짜에 맞는 폴더에 다운로드 함
-download_path = 'C:\\Users\\Sun\\Desktop\\selenium_\\csv\\' + current
+download_path = 'E:\\Program\\Python\\Project\\csv\\' + current
 
 options = Options()
 options.set_preference("browser.download.folderList", 2)
