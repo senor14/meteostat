@@ -46,10 +46,14 @@ options.set_preference("browser.download.folderList", 2)
 options.set_preference("browser.download.manager.showWhenStarting", False)
 options.set_preference("browser.download.dir", download_path)
 options.set_preference("browser.helperApps.neverAsk.saveToDisk", "text/csv")
+options.headless = True
+
+# 지역 코드
+station_code = str(10384)
 
 driver = webdriver.Firefox(options=options)
 driver.implicitly_wait(3)
-driver.get(f"https://meteostat.net/en/place/de/berlin-treptow?s=10389&t={current}/{three_days_later}")
+driver.get(f"https://meteostat.net/en/station/{station_code}?t={current}/{three_days_later}")
 
 notice_elem = "/html/body/div[1]/div[2]/div/div/div[3]/button[2]"
 accept = driver.find_element(By.XPATH, notice_elem)
@@ -74,3 +78,5 @@ save_button = driver.find_element(By.XPATH, save_button_elem)
 print(f'Save={save_button.text}')
 save_button.click()
 
+# driver 종료
+driver.quit()
