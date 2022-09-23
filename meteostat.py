@@ -77,6 +77,3 @@ save_button_elem = '/html/body/div[1]/div/main/div/div/div/div[1]/div[3]/div[5]/
 save_button = driver.find_element(By.XPATH, save_button_elem)
 print(f'Save={save_button.text}')
 save_button.click()
-
-# driver 종료
-driver.quit()
